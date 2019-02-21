@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="recycler_items">
+        <item>J'Spal Von Krishna</item>
+        <item>Nicki Minaj</item>
+        <item>Genesis Lopesz</item>
+        <item>Senheiser HD820</item>
+    </string-array>
+
+
+</resources>
