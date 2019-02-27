@@ -11,7 +11,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import org.pursuit.fragmentinterfacereviewexercise.R;
+import org.pursuit.fragmentinterfacereviewexercise.model.Baddie;
+
 public class EndFragment extends Fragment {
     public static final String KEY = "display";
     public static final String BADDIE_NAME = "name";
@@ -22,19 +26,19 @@ public class EndFragment extends Fragment {
     private ImageView baddiesPic;
     private String baddiesNameString;
     private String baddiesInstaString;
-    private int baddiesPicInt;
+    private String baddiesPicURL;
 
 
 
     public EndFragment() {
     }
 
-    public static EndFragment newInstance(String baddiesNamesString, String baddiesInstaString, int badiesPicInt){
+    public static EndFragment newInstance(Baddie model){
         EndFragment endFragment = new EndFragment();
         Bundle args = new Bundle();
-        args.putString(BADDIE_NAME, baddiesNamesString);
-        args.putString(BADDIE_INSTA, baddiesInstaString);
-        args.putInt(BADDIE_PIC, badiesPicInt);
+        args.putString(BADDIE_NAME, model.getName());
+        args.putString(BADDIE_INSTA, model.getInstagram());
+        args.putString(BADDIE_PIC,model.getImage());
         endFragment.setArguments(args);
         return endFragment;
     }
@@ -44,7 +48,7 @@ public class EndFragment extends Fragment {
         super.onCreate(savedInstanceState);
         baddiesNameString = getArguments().getString(BADDIE_NAME);
         baddiesInstaString = getArguments().getString(BADDIE_INSTA);
-        baddiesPicInt = getArguments().getInt(BADDIE_PIC);
+        baddiesPicURL = getArguments().getString(BADDIE_PIC);
     }
 
     @Override
@@ -61,8 +65,8 @@ public class EndFragment extends Fragment {
         baddiesPic = view.findViewById(R.id.baddies_pic);
 
         baddiesName.setText(baddiesNameString);
-        baddiesInsta.setText("Find this baddie on Instagram @" + baddiesInstaString);
-        baddiesPic.setImageResource(baddiesPicInt);
+        baddiesInsta.setText("Find this baddie on Instagram " + baddiesInstaString);
+        Picasso.get().load(baddiesPicURL).into(baddiesPic);
     }
 
 }

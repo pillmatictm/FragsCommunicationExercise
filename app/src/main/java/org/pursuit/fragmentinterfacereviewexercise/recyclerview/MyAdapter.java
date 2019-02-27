@@ -7,33 +7,34 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.pursuit.fragmentinterfacereviewexercise.R;
+import org.pursuit.fragmentinterfacereviewexercise.fragments.FragmentInterface;
+import org.pursuit.fragmentinterfacereviewexercise.model.Baddie;
+
+import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
-    int[] images;
-    String[] names;
-    String[] instagrams;
+   List<Baddie> baddieList;
+   FragmentInterface fragmentInterface;
 
-    public MyAdapter(int[] images, String[] names, String[] instagrams) {
-        this.images = images;
-        this.names = names;
-        this.instagrams = instagrams;
+    public MyAdapter(List<Baddie> baddieList, FragmentInterface fragmentInterface) {
+        this.baddieList = baddieList;
+        this.fragmentInterface = fragmentInterface;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View childView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recyclerview_viewholder, viewGroup, false);
-        return new MyViewHolder(childView, images, names, instagrams);
-    }
+        return new MyViewHolder(childView);
+}
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
-        String baddie_name = names[i];
-        myViewHolder.baddiesTitle.setText(baddie_name);
+        myViewHolder.onBind(baddieList.get(i),fragmentInterface);
     }
 
     @Override
     public int getItemCount() {
-        return names.length;
+        return baddieList.size();
     }
 }

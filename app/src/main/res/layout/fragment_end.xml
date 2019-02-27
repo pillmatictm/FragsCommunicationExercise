@@ -17,18 +17,20 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/baddies_pic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.581" />
+        app:layout_constraintVertical_bias="0.376" />
 
     <ImageView
         android:id="@+id/baddies_pic"
         android:layout_width="fill_parent"
-        android:layout_height="500dp"
+        android:layout_height="490dp"
         android:scaleType="fitXY"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="100dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/baddies_instagram"
@@ -41,9 +43,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.397" />
+        app:layout_constraintTop_toBottomOf="@+id/baddies_pic" />
 
 </android.support.constraint.ConstraintLayout>

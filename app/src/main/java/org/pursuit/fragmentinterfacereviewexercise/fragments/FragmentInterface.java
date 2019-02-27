@@ -1,7 +1,8 @@
 package org.pursuit.fragmentinterfacereviewexercise.fragments;
 
+import org.pursuit.fragmentinterfacereviewexercise.model.Baddie;
+
 public interface FragmentInterface {
 
-    void toEndFrag(int image, String name, String instagram);
-
+    void toEndFrag(Baddie model);
 }
